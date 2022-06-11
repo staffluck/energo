@@ -1,5 +1,12 @@
+from enum import Enum
 from math import sqrt
 from typing import Union
+
+
+class Color(Enum):
+    BLUE = 1
+    GREEN = 2
+    RED = 3
 
 
 def solve(a: float, b: float, c: float) -> Union[None, tuple, float]:
@@ -13,3 +20,16 @@ def solve(a: float, b: float, c: float) -> Union[None, tuple, float]:
         first_solution = ((-b) + sqrt(discriminant)) / 2
         second_solition = ((-b) - sqrt(discriminant)) / 2
         return (first_solution, second_solition)
+
+
+def colored_items_solution(number: int) -> Enum:
+    max_items = 100
+    remaining = max_items - number
+
+    if number > remaining:
+        return Color.BLUE
+    else:
+        if number > 30:
+            return Color.GREEN
+        else:
+            return Color.RED
