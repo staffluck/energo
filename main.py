@@ -1,7 +1,7 @@
 import fastapi
 import uvicorn
 
-from utils import solve
+from utils import colored_items_solution, solve
 
 
 app = fastapi.FastAPI()
@@ -13,6 +13,16 @@ def solve_quadratic_equation(a: int, b: int, c: int):
 
     response = {
         "solution": solution
+    }
+    return response
+
+
+@app.get("/colored_items_solve/")
+def solve_colored_items(number: int):
+    solution = colored_items_solution(number)
+
+    response = {
+        "solution": solution.name
     }
     return response
 
