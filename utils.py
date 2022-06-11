@@ -4,6 +4,7 @@ from typing import Union
 
 def solve(a: float, b: float, c: float) -> Union[None, tuple, float]:
     discriminant = pow(b, 2) - (4 * a * c)
+
     if discriminant < 0:
         return None
     elif discriminant == 0:
